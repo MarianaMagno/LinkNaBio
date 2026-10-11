@@ -22,8 +22,11 @@ Para testar a versão de produção: `npm run build && npm start`.
 | Fotos | `public/img/` |
 | Estrutura da página | `app/page.tsx` |
 | Card do carrossel | `components/CardProduto.tsx` |
+| Perguntas do formulário de Social media | `data/formulario-social-media.ts` |
 
-Links que ainda estão como `"#"` têm um comentário `TODO` em `data/site.ts`.
+## Formulário de Social media
+
+O card "Social media" abre `/social-media`, um formulário de qualificação (ICP). Ao enviar, as respostas vão para uma planilha do Google e a pessoa segue para o WhatsApp da Mari com o resumo pronto. Para ligar a planilha, siga `docs/PLANILHA.md`.
 
 - **Novo card:** copie um item do array `produtos` e ajuste. `tipo: "foto"` usa imagem; `tipo: "texto"` usa fundo `vinho` ou `rosa`.
 - **Esconder o aulão:** em `aulao`, mude `ativo` para `false`.

@@ -29,7 +29,7 @@ export type Produto = {
     }
 );
 
-const WHATSAPP_MARI = "5512991752823";
+export const WHATSAPP_MARI = "5512991752823";
 const WHATSAPP_COMERCIAL = "5513998083338";
 
 const wa = (numero: string, mensagem?: string) =>
@@ -102,10 +102,7 @@ export const produtos: Produto[] = [
     tipo: "texto",
     tema: "vinho",
     bordaSutil: true,
-    href: wa(
-      WHATSAPP_MARI,
-      "Oi, Mari! Tudo bem? Tenho interesse no serviço de social media para a minha empresa e gostaria de saber mais."
-    ),
+    href: "/social-media", // formulário de qualificação (ICP) → planilha + WhatsApp
     selo: "Para empresas",
     chamada: { texto: "Social", destaque: "media" },
     tamanhoChamada: 28,
