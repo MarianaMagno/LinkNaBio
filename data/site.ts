@@ -114,7 +114,7 @@ export const produtos: Produto[] = [
     id: "ebook-marcas",
     tipo: "texto",
     tema: "rosa",
-    href: "#", // TODO: link de checkout
+    href: "https://conteudoqueatraimarcas.com.br/",
     selo: "E-book · novo",
     chamada: { texto: "Conteúdos que atraem marcas" },
     tamanhoChamada: 24,
