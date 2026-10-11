@@ -90,7 +90,7 @@ export const produtos: Produto[] = [
     id: "metodo-clips",
     tipo: "foto",
     imagem: "/img/metodo-clips.jpg",
-    href: "https://metodoclipscomonegocio.com.br",
+    href: "https://metodoclipscomonegocio.com.br/",
     selo: "Curso",
     chamada: { texto: "Método Clips como", destaque: "Negócio" },
     tamanhoChamada: 19,
