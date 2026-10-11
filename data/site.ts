@@ -43,10 +43,10 @@ export const perfil = {
 };
 
 export const redes = {
-  instagram: "#", // TODO: link do Instagram
-  tiktok: "#", // TODO: link do TikTok
+  instagram: "https://www.instagram.com/mariana.magnoo/",
+  tiktok: "https://www.tiktok.com/@marianamagnougc",
   whatsapp: wa(WHATSAPP_MARI),
-  email: "#", // TODO: ex. "mailto:contato@dominio.com"
+  email: "mailto:marianamagnougc@gmail.com",
 };
 
 export const aulao = {
@@ -102,7 +102,10 @@ export const produtos: Produto[] = [
     tipo: "texto",
     tema: "vinho",
     bordaSutil: true,
-    href: "#", // TODO: link do formulário / WhatsApp
+    href: wa(
+      WHATSAPP_MARI,
+      "Oi, Mari! Tudo bem? Tenho interesse no serviço de social media para a minha empresa e gostaria de saber mais."
+    ),
     selo: "Para empresas",
     chamada: { texto: "Social", destaque: "media" },
     tamanhoChamada: 28,
