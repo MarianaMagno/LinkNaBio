@@ -31,12 +31,8 @@ Depois vá em **Deployments → ⋯ → Redeploy** para valer.
 
 ## Como ler a planilha
 
-Cada envio vira uma linha na aba **Leads social media**. A coluna **Temperatura** é preenchida sozinha:
+Cada envio vira uma linha na aba **Leads social media**, com: nome, WhatsApp, empresa, Instagram, negócio, segmento, como estão as redes hoje, serviços procurados (vários separados por vírgula), objetivo e observações.
 
-- **Quente:** investe a partir de R$ 3.000/mês e quer começar em até 30 dias.
-- **Frio:** só está pesquisando ou investe até R$ 1.500.
-- **Morno:** o resto.
-
-A regra fica em `data/formulario-social-media.ts` (função `temperatura`), e as perguntas também.
+As perguntas ficam em `data/formulario-social-media.ts`. Se criar uma pergunta nova, adicione também a coluna correspondente em `COLUNAS` no script.
 
 > Se mudar o script depois, use **Implantar → Gerenciar implantações → editar → Nova versão** para manter a mesma URL.

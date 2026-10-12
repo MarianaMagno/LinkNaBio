@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { temperatura, todasAsPerguntas } from "@/data/formulario-social-media";
+import { todasAsPerguntas } from "@/data/formulario-social-media";
 
 /**
  * Recebe o formulário de Social media e repassa para a planilha do Google
@@ -32,7 +32,6 @@ export async function POST(req: Request) {
   const linha = {
     data: new Date().toLocaleString("pt-BR", { timeZone: "America/Sao_Paulo" }),
     ...respostas,
-    temperatura: temperatura(respostas),
     origem: "Link na bio",
   };
 

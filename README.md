@@ -24,13 +24,13 @@ Para testar a versão de produção: `npm run build && npm start`.
 | Card do carrossel | `components/CardProduto.tsx` |
 | Perguntas do formulário de Social media | `data/formulario-social-media.ts` |
 
-## Formulário de Social media
-
-O card "Social media" abre `/social-media`, um formulário de qualificação (ICP). Ao enviar, as respostas vão para uma planilha do Google e a pessoa segue para o WhatsApp da Mari com o resumo pronto. Para ligar a planilha, siga `docs/PLANILHA.md`.
-
 - **Novo card:** copie um item do array `produtos` e ajuste. `tipo: "foto"` usa imagem; `tipo: "texto"` usa fundo `vinho` ou `rosa`.
 - **Esconder o aulão:** em `aulao`, mude `ativo` para `false`.
 - **Texto rosa:** use `{ texto: "Meu", destaque: "portfólio" }`. Na bio, `**negrito**` fica rosa.
+
+## Formulário de Social media
+
+O card "Social media" abre `/social-media`, um formulário de qualificação (ICP). Ao enviar, as respostas vão para uma planilha do Google e a pessoa segue para o WhatsApp da Mari com o resumo pronto. Para ligar a planilha, siga `docs/PLANILHA.md`.
 
 ## Publicar (Vercel)
 

@@ -346,6 +346,7 @@ textarea.campo__entrada { resize: vertical; min-height: 88px; }
 }
 .chip:hover span { border-color: var(--rosa); }
 .chip input:checked + span { background: var(--rosa); color: var(--vinho); border-color: var(--rosa); font-weight: 700; }
+.chip--multipla input:checked + span::before { content: "✓"; margin-right: 6px; font-weight: 700; }
 .chip input:focus-visible + span { outline: 2px solid var(--rosa); outline-offset: 2px; }
 
 .armadilha { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }

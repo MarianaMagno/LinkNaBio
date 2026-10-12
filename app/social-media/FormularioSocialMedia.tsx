@@ -4,6 +4,8 @@ import { useState, type FormEvent } from "react";
 import { etapas, todasAsPerguntas, type Pergunta } from "@/data/formulario-social-media";
 import { WHATSAPP_MARI } from "@/data/site";
 
+const SEP = ", ";
+
 /** (11) 91234-5678 */
 function mascaraTelefone(v: string) {
   const d = v.replace(/\D/g, "").slice(0, 11);
@@ -33,6 +35,40 @@ function Campo({
   aoMudar: (v: string) => void;
 }) {
   const marca = p.obrigatoria ? null : <span className="campo__opcional">opcional</span>;
+
+  if (p.tipo === "multiplas") {
+    const marcadas = valor ? valor.split(SEP) : [];
+    const alternar = (op: string) => {
+      const nova = marcadas.includes(op) ? marcadas.filter((m) => m !== op) : [...marcadas, op];
+      // mantém a ordem das opções
+      aoMudar(p.opcoes.filter((o) => nova.includes(o)).join(SEP));
+    };
+    return (
+      <fieldset className="campo">
+        <legend className="campo__rotulo">
+          {p.rotulo} {p.ajuda ? <span className="campo__opcional">{p.ajuda}</span> : marca}
+        </legend>
+        <div className="chips">
+          {p.opcoes.map((op, i) => (
+            <label key={op} className="chip chip--multipla">
+              <input
+                type="checkbox"
+                name={p.id}
+                value={op}
+                checked={marcadas.includes(op)}
+                onChange={() => alternar(op)}
+                ref={(el) => {
+                  // "marque pelo menos uma": validação nativa no primeiro item
+                  if (el && i === 0) el.setCustomValidity(p.obrigatoria && marcadas.length === 0 ? "Marque pelo menos uma opção." : "");
+                }}
+              />
+              <span>{op}</span>
+            </label>
+          ))}
+        </div>
+      </fieldset>
+    );
+  }
 
   if (p.tipo === "opcoes") {
     return (

@@ -12,13 +12,16 @@ export type Pergunta =
       placeholder?: string;
       obrigatoria?: boolean;
     }
-  | {
-      id: string;
-      tipo: "opcoes";
-      rotulo: string;
-      opcoes: string[];
-      obrigatoria?: boolean;
-    };
+  | (OpcoesBase & { tipo: "opcoes" }) // escolhe uma
+  | (OpcoesBase & { tipo: "multiplas" }); // pode marcar várias
+
+type OpcoesBase = {
+  id: string;
+  rotulo: string;
+  ajuda?: string;
+  opcoes: string[];
+  obrigatoria?: boolean;
+};
 
 export type Etapa = { titulo: string; perguntas: Pergunta[] };
 
@@ -36,6 +39,13 @@ export const etapas: Etapa[] = [
     titulo: "Sobre o negócio",
     perguntas: [
       {
+        id: "negocio",
+        tipo: "texto",
+        rotulo: "Qual é o seu negócio?",
+        placeholder: "Ex.: loja de roupas femininas, clínica de estética",
+        obrigatoria: true,
+      },
+      {
         id: "segmento",
         tipo: "opcoes",
         rotulo: "Qual o segmento?",
@@ -43,17 +53,15 @@ export const etapas: Etapa[] = [
         obrigatoria: true,
       },
       {
-        id: "faturamento",
+        id: "situacao_redes",
         tipo: "opcoes",
-        rotulo: "Faturamento mensal médio",
-        opcoes: ["Até R$ 10 mil", "R$ 10 a 30 mil", "R$ 30 a 100 mil", "Acima de R$ 100 mil", "Prefiro não dizer"],
-        obrigatoria: true,
-      },
-      {
-        id: "quem_cuida",
-        tipo: "opcoes",
-        rotulo: "Hoje, quem cuida das redes sociais?",
-        opcoes: ["Ninguém", "Eu mesma(o)", "Alguém da equipe", "Agência ou freelancer"],
+        rotulo: "Hoje, como funcionam suas redes sociais?",
+        opcoes: [
+          "Ainda não faço social media",
+          "Faço sozinha(o)",
+          "Alguém da equipe cuida",
+          "Já tenho agência ou freelancer",
+        ],
         obrigatoria: true,
       },
     ],
@@ -62,24 +70,18 @@ export const etapas: Etapa[] = [
     titulo: "O que você busca",
     perguntas: [
       {
+        id: "servicos",
+        tipo: "multiplas",
+        rotulo: "Qual serviço você procura?",
+        ajuda: "pode marcar mais de um",
+        opcoes: ["Design", "Edição de vídeos e posts", "Estratégia da marca", "Gestão de mídia social"],
+        obrigatoria: true,
+      },
+      {
         id: "objetivo",
         tipo: "opcoes",
         rotulo: "Principal objetivo com as redes",
         opcoes: ["Vender mais", "Ganhar autoridade e seguidores", "Lançar um produto", "Profissionalizar a marca"],
-        obrigatoria: true,
-      },
-      {
-        id: "investimento",
-        tipo: "opcoes",
-        rotulo: "Quanto pode investir por mês em social media?",
-        opcoes: ["Até R$ 1.500", "R$ 1.500 a 3.000", "R$ 3.000 a 5.000", "Acima de R$ 5.000"],
-        obrigatoria: true,
-      },
-      {
-        id: "prazo",
-        tipo: "opcoes",
-        rotulo: "Quando quer começar?",
-        opcoes: ["Agora", "Nos próximos 30 dias", "Só estou pesquisando"],
         obrigatoria: true,
       },
       {
@@ -93,15 +95,3 @@ export const etapas: Etapa[] = [
 ];
 
 export const todasAsPerguntas = etapas.flatMap((e) => e.perguntas);
-
-/**
- * Classificação automática do lead (vai para a coluna "temperatura" da planilha).
- * Quente = investimento a partir de R$ 3.000 e quer começar em até 30 dias.
- */
-export function temperatura(r: Record<string, string>): "Quente" | "Morno" | "Frio" {
-  const investeBem = ["R$ 3.000 a 5.000", "Acima de R$ 5.000"].includes(r.investimento);
-  const comecaLogo = ["Agora", "Nos próximos 30 dias"].includes(r.prazo);
-  if (r.prazo === "Só estou pesquisando" || r.investimento === "Até R$ 1.500") return "Frio";
-  if (investeBem && comecaLogo) return "Quente";
-  return "Morno";
-}

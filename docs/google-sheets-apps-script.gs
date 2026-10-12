@@ -12,17 +12,15 @@ const NOME_DA_ABA = "Leads social media";
 // Ordem e títulos das colunas. A chave da esquerda vem do site.
 const COLUNAS = [
   ["data", "Data"],
-  ["temperatura", "Temperatura"],
   ["nome", "Nome"],
   ["whatsapp", "WhatsApp"],
   ["empresa", "Empresa"],
   ["instagram", "Instagram"],
+  ["negocio", "Negócio"],
   ["segmento", "Segmento"],
-  ["faturamento", "Faturamento mensal"],
-  ["quem_cuida", "Quem cuida das redes"],
+  ["situacao_redes", "Como estão as redes hoje"],
+  ["servicos", "Serviços procurados"],
   ["objetivo", "Objetivo"],
-  ["investimento", "Investimento mensal"],
-  ["prazo", "Quando quer começar"],
   ["observacoes", "Observações"],
   ["origem", "Origem"],
 ];
