@@ -50,7 +50,7 @@ export const redes = {
 };
 
 export const aulao = {
-  ativo: true,
+  ativo: false, // escondido: o aulão de 07/nov já passou. Mude para true para mostrar de novo
   dia: "07",
   mes: "Nov",
   selo: "Em breve · gratuito",
