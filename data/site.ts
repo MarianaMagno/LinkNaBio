@@ -83,7 +83,7 @@ export const produtos: Produto[] = [
     tamanhoChamada: 30,
     rodape: "Mariana Magno",
     nome: "Método VICIO",
-    botao: "Assistir vídeo",
+    botao: "Quero saber",
   },
   {
     id: "portfolio",
