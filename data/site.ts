@@ -66,7 +66,7 @@ export const produtos: Produto[] = [
     tipo: "foto",
     imagem: "/img/mentoria.jpg",
     borda: true,
-    href: "https://calendar.app.google/dhxGScvPcCRoiBW2A", // agenda do Google para marcar a conversa
+    href: wa(WHATSAPP_MARI, "Oi, tudo bem? Quero saber mais sobre as mentorias."), // WhatsApp da Mari com mensagem pronta
     selo: "Mais procurado",
     chamada: { texto: "Mentoria com a", destaque: "Mari" },
     nome: "Mentoria e consultoria",
