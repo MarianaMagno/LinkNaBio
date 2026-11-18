@@ -73,6 +73,19 @@ export const produtos: Produto[] = [
     botao: "Quero saber",
   },
   {
+    id: "metodo-vicio",
+    tipo: "texto",
+    tema: "vinho",
+    bordaSutil: true,
+    href: "https://metodovicio.vercel.app/", // VSL do Método VICIO
+    selo: "Curso · novo",
+    chamada: { texto: "Método", destaque: "VICIO" },
+    tamanhoChamada: 30,
+    rodape: "Mariana Magno",
+    nome: "Método VICIO",
+    botao: "Assistir vídeo",
+  },
+  {
     id: "portfolio",
     tipo: "foto",
     imagem: "/img/portfolio.jpg",
